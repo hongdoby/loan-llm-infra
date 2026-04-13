@@ -70,7 +70,7 @@ resource "aws_subnet" "private_2c" {
   }
 }
 
-# NAT게이트웨이
+# NAT 게이트웨이
 resource "aws_eip" "nat_eip" {
   domain = "vpc"
 
@@ -119,7 +119,7 @@ resource "aws_route_table_association" "pub_2c" {
   route_table_id = aws_route_table.public_rt.id
 }
 
-# 라우팅테이블 프라이빗 섭넷 넷 게이트웨이 통신용
+# 라우팅 테이블 프라이빗 섭넷 넷 게이트웨이 통신용
 resource "aws_route_table" "private_rt" {
   vpc_id = aws_vpc.vpc1.id
 
