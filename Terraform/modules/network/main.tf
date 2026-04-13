@@ -21,7 +21,7 @@ resource "aws_internet_gateway" "igw" {
 # public subnet (ALB, NAT 게이트웨이용)
 resource "aws_subnet" "public_2a" {
   vpc_id                  = aws_vpc.vpc1.id
-  cidr_block              = var.public_subnet_2a_cidr  # "10.0.1.0/24"
+  cidr_block              = var.public_subnet_2a_cidr  # "10.0.0.0/22"
   availability_zone       = "ap-northeast-2a"
   map_public_ip_on_launch = true
 
@@ -34,7 +34,7 @@ resource "aws_subnet" "public_2a" {
 
 resource "aws_subnet" "public_2c" {
   vpc_id                  = aws_vpc.vpc1.id
-  cidr_block              = var.public_subnet_2c_cidr  # "10.0.2.0/24"
+  cidr_block              = var.public_subnet_2c_cidr  # "10.0.4.0/22"
   availability_zone       = "ap-northeast-2c"
   map_public_ip_on_launch = true
 
@@ -48,7 +48,7 @@ resource "aws_subnet" "public_2c" {
 # private subnet(EKS 노드용)
 resource "aws_subnet" "private_2a" {
   vpc_id            = aws_vpc.vpc1.id
-  cidr_block        = var.private_subnet_2a_cidr  # "10.0.11.0/24"
+  cidr_block        = var.private_subnet_2a_cidr  # "10.0.8.0/22"
   availability_zone = "ap-northeast-2a"
 
   tags = {
@@ -60,7 +60,7 @@ resource "aws_subnet" "private_2a" {
 
 resource "aws_subnet" "private_2c" {
   vpc_id            = aws_vpc.vpc1.id
-  cidr_block        = var.private_subnet_2c_cidr  # "10.0.12.0/24"
+  cidr_block        = var.private_subnet_2c_cidr  # "10.0.12.0/22"
   availability_zone = "ap-northeast-2c"
 
   tags = {
