@@ -29,4 +29,5 @@ variable "private_subnet_2c_cidr" {
 variable "azs" {
   type    = list(string)
   default = ["ap-northeast-2a", "ap-northeast-2c"]
+
 }

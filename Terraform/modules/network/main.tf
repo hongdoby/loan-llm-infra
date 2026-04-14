@@ -22,6 +22,7 @@ resource "aws_internet_gateway" "igw" {
 resource "aws_subnet" "public_2a" {
   vpc_id                  = aws_vpc.vpc1.id
   cidr_block              = var.public_subnet_2a_cidr  # "10.0.0.0/22"
+
   availability_zone       = "ap-northeast-2a"
   map_public_ip_on_launch = true
 
@@ -29,6 +30,7 @@ resource "aws_subnet" "public_2a" {
     Name                                     = "vpc1-public-2a"
     "kubernetes.io/role/elb"                 = "1"
     "kubernetes.io/cluster/${var.cluster_name}" = "shared"
+
   }
 }
 
@@ -42,6 +44,7 @@ resource "aws_subnet" "public_2c" {
     Name                                     = "vpc1-public-2c"
     "kubernetes.io/role/elb"                 = "1"
     "kubernetes.io/cluster/${var.cluster_name}" = "shared"
+
   }
 }
 
@@ -55,6 +58,7 @@ resource "aws_subnet" "private_2a" {
     Name                                     = "vpc1-private-2a"
     "kubernetes.io/role/internal-elb"        = "1"
     "kubernetes.io/cluster/${var.cluster_name}" = "shared"
+
   }
 }
 
@@ -62,6 +66,7 @@ resource "aws_subnet" "private_2c" {
   vpc_id            = aws_vpc.vpc1.id
   cidr_block        = var.private_subnet_2c_cidr  # "10.0.12.0/22"
   availability_zone = var.azs[1]
+
 
   tags = {
     Name                                     = "vpc1-private-2c"
@@ -118,6 +123,7 @@ resource "aws_route_table_association" "pub_2c" {
   subnet_id      = aws_subnet.public_2c.id
   route_table_id = aws_route_table.public_rt.id
 }
+
 
 # 라우팅 테이블 프라이빗 섭넷 넷 게이트웨이 통신용
 resource "aws_route_table" "private_rt" {
