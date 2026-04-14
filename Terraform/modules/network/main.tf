@@ -41,7 +41,7 @@ resource "aws_subnet" "public_2c" {
   tags = {
     Name                                     = "vpc1-public-2c"
     "kubernetes.io/role/elb"                 = "1"
-    "kubernetes.io/cluster/loan-llm-cluster" = "shared"
+    "kubernetes.io/cluster/${var.cluster_name}" = "shared"
   }
 }
 
@@ -49,24 +49,24 @@ resource "aws_subnet" "public_2c" {
 resource "aws_subnet" "private_2a" {
   vpc_id            = aws_vpc.vpc1.id
   cidr_block        = var.private_subnet_2a_cidr  # "10.0.8.0/22"
-  availability_zone = "ap-northeast-2a"
+  availability_zone = var.azs[0]
 
   tags = {
     Name                                     = "vpc1-private-2a"
     "kubernetes.io/role/internal-elb"        = "1"
-    "kubernetes.io/cluster/loan-llm-cluster" = "shared"
+    "kubernetes.io/cluster/${var.cluster_name}" = "shared"
   }
 }
 
 resource "aws_subnet" "private_2c" {
   vpc_id            = aws_vpc.vpc1.id
   cidr_block        = var.private_subnet_2c_cidr  # "10.0.12.0/22"
-  availability_zone = "ap-northeast-2c"
+  availability_zone = var.azs[1]
 
   tags = {
     Name                                     = "vpc1-private-2c"
     "kubernetes.io/role/internal-elb"        = "1"
-    "kubernetes.io/cluster/loan-llm-cluster" = "shared"
+    "kubernetes.io/cluster/${var.cluster_name}" = "shared"
   }
 }
 
