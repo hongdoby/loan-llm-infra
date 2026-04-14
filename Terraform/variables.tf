@@ -11,17 +11,17 @@ variable "vpc_cidr" {
 }
 
 variable "public_subnet_2a_cidr" {
-  default = "10.0.0.0/22"   # 대역: 10.0.0.0 ~ 10.0.3.255
+  default = "10.0.1.0/24"
 }
 
 variable "public_subnet_2c_cidr" {
-  default = "10.0.4.0/22"   # 대역: 10.0.4.0 ~ 10.0.7.255
+  default = "10.0.2.0/24"
 }
 
 variable "private_subnet_2a_cidr" {
-  default = "10.0.8.0/22"   # 대역: 10.0.8.0 ~ 10.0.11.255
+  default = "10.0.11.0/24"
 }
 
 variable "private_subnet_2c_cidr" {
-  default = "10.0.12.0/22"  # 대역: 10.0.12.0 ~ 10.0.15.255
+  default = "10.0.12.0/24"
 }
