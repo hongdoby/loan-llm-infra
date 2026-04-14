@@ -5,4 +5,3 @@ variable "private_subnet_2a_cidr" {}
 variable "private_subnet_2c_cidr" {}
 variable "cluster_name" {}
 variable "azs" {}
-

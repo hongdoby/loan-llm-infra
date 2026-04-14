@@ -125,7 +125,7 @@ resource "aws_route_table_association" "pub_2c" {
 }
 
 
-# 라우팅 테이블 프라이빗 섭넷 넷 게이트웨이 통신용
+# 라우팅 테이블 프라이빗 서브넷 NAT 게이트웨이 통신용
 resource "aws_route_table" "private_rt" {
   vpc_id = aws_vpc.vpc1.id
 
