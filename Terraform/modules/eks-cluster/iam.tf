@@ -21,6 +21,7 @@ resource "aws_iam_role" "eks_cluster_role" {
   }
 }
 
+# EKS 클러스터가 필요한 권한을 갖도록 하는 정책 연결
 resource "aws_iam_role_policy_attachment" "eks_cluster_policy" {
   policy_arn = "arn:aws:iam::aws:policy/AmazonEKSClusterPolicy"
   role       = aws_iam_role.eks_cluster_role.name

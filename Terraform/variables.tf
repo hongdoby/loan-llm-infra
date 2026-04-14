@@ -25,3 +25,8 @@ variable "private_subnet_2a_cidr" {
 variable "private_subnet_2c_cidr" {
   default = "10.0.12.0/22"  # 대역: 10.0.12.0 ~ 10.0.15.255
 }
+
+variable "azs" {
+  type    = list(string)
+  default = ["ap-northeast-2a", "ap-northeast-2c"]
+}

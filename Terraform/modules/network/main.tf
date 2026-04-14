@@ -28,7 +28,7 @@ resource "aws_subnet" "public_2a" {
   tags = {
     Name                                     = "vpc1-public-2a"
     "kubernetes.io/role/elb"                 = "1"
-    "kubernetes.io/cluster/loan-llm-cluster" = "shared"
+    "kubernetes.io/cluster/${var.cluster_name}" = "shared"
   }
 }
 
