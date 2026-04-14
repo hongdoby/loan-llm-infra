@@ -21,4 +21,6 @@ module "eks_cluster" {
     module.network.private_subnet_2a_id,
     module.network.private_subnet_2c_id,
    ]
+   
+   admin_users  = var.admin_users
 }
