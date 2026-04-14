@@ -67,12 +67,13 @@ resource "aws_eks_node_group" "ai_node" {
   # Private-A 서브넷 (var.subnet_ids의 첫 번째 값: 2a)
   subnet_ids      = [var.subnet_ids[0]]
 
-  instance_types = ["g6.xlarge"]
+  #instance_types = ["g6.xlarge"]
+  instance_types = ["g4dn.xlarge"]
   capacity_type  = "SPOT"
   disk_size      = 100
   
   # GPU 인스턴스이므로 GPU 최적화 AMI 사용
-  ami_type       = "AL2_x86_64_GPU" 
+  ami_type       = "AL2023_x86_64_NVIDIA" 
 
   scaling_config {
     desired_size = 1
