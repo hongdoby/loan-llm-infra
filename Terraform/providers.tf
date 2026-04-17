@@ -7,6 +7,14 @@ terraform {
       version = "~> 5.0"
     }
   }
+
+  backend "s3" {
+    bucket         = "loan-cloud-tfstate"
+    key            = "loan-llm/terraform.tfstate"
+    region         = "ap-northeast-2"
+    dynamodb_table = "loan-cloud-locks"
+    encrypt        = true
+  }
 }
 
 provider "aws" {
