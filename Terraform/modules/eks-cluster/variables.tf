@@ -8,8 +8,13 @@ variable "subnet_ids" {
   type        = list(string)
 }
 
-# modules/eks-cluster/variables.tf 파일에 추가
 variable "admin_users" {
   description = "EKS 클러스터 최고 관리자 권한을 부여할 IAM 유저 ARN 목록"
   type        = list(string)
+}
+
+# [추가] LBC 설치 시 필요한 VPC ID
+variable "vpc_id" {
+  description = "VPC ID"
+  type        = string
 }
